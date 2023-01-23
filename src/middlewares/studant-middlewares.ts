@@ -8,5 +8,4 @@ async function studantExist(name: string) {
     console.log(err);
   }
 }
-
 export {studantExist}

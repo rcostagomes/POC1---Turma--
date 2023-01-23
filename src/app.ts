@@ -16,6 +16,6 @@ server.get("/studants", getAllStudants);
 
 server.get("/status/:name",studantAproved)
 
-server.listen(2000, () => {
-  console.log("server runing in port 2000");
+server.listen(4000, () => {
+  console.log("server runing in port 4000");
 });
