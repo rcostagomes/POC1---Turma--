@@ -1,11 +1,27 @@
-import { connection } from "../database/database.js";
+import client from "../database/database.js";
 
 async function studantExist(name: string) {
-  try {
-    const studant = await connection.query(`SELECT * FROM alunos WHERE name = $1`,[name])
-  return studant.rows;
-  } catch (err) {
-    console.log(err);
-  }
+  
+     return client.alunos.findFirst({
+      where: {
+        name: name
+      }
+     })
+  } 
+
+  async function studantExistId(id:number) {
+  
+    return client.alunos.findFirst({
+     where: {
+       id
+     }
+    })
+ } 
+
+
+async function studantGrade(alunoId:number) {
+return client.notas.findFirst({
+  where:{alunoId}
+})
 }
-export {studantExist}
+export {studantExist,studantGrade,studantExistId}
